@@ -1,0 +1,208 @@
+/** { 
+  box-sizing: border-box;
+}
+body{
+  font-size: 14px;
+  font-family:tahoma; 
+  padding:0px;
+  margin:0px;
+}
+h5, p { 
+  font-size: inherit;
+  line-height:18px; 
+  margin: 0 0 5px;
+}
+.top-left-abs{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ver-centered{
+  position: absolute;
+  top: 50%;
+}
+.fixed--container{
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.flex--column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.text-center{
+  text-align: center;
+}
+.container { 
+  max-width:650px; 
+  margin-left:auto; 
+  margin-right:auto;
+}
+.main--content { 
+  background-color:#eee; 
+  overflow-y: auto; 
+  min-height: 250px;
+  transition: transform 0.45s ease-in-out;
+}
+.main--content.offline{
+  background-color: #c5c5c5;
+}
+.hide-panel{
+  transform: translateX(100%);
+}
+input { 
+  border-radius:2px;
+  border:1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+}
+.chat-bubble--wrapper.my-bubble{
+  text-align: right;
+}
+.chat-bubble{
+  position: relative;
+  display: inline-block;
+  min-width: 125px;
+  max-width: 80%;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  padding: 5px 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  text-align: left;
+}
+.my-bubble .chat-bubble{
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0;
+}
+.chat-bubble::before,
+.chat-bubble::after{
+  content: '';
+  position: absolute;
+  border-top: 10px solid #fff;
+  border-left: 12px solid transparent;
+  left: -12px;
+  top: 0;
+  z-index: 1;
+}
+.chat-bubble::after{
+  border-top-color: rgba(0,0,0,0.16);
+  top: 1px;
+  z-index: 0;
+}
+.my-bubble .chat-bubble::before,
+.my-bubble .chat-bubble::after{
+  left: auto;
+  right: -12px;
+  border-left: none;
+  border-right: 12px solid transparent;
+}
+.chat-bubble--wrapper{
+  margin: 10px 0px;
+  padding-left: 12px;
+}
+.chat-bubble--wrapper.my-bubble{
+  padding-left: 0;
+  padding-right: 10px;
+}
+.my-bubble + .my-bubble{
+  margin-top: 0;
+}
+.timeago{
+  margin: 0;
+  text-align: right;
+  font-size: 11px;
+  color: grey;
+  line-height: 14px;
+}
+.timeago abbr{
+  text-decoration: none;
+}
+header,
+.main--content footer{
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+header{
+  text-align: center;
+  line-height: 55px;
+  top: 0;
+  z-index: 10;
+  font-size: 20px;
+  color: #fff;
+  background-color: #3e474f;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 2px 9px 1px rgba(0,0,0,.12), 0 4px 2px -2px rgba(0,0,0,.2);
+}
+header a{
+  padding: 27.5px 16px;
+  text-align: center;
+}
+header img{
+  margin-top: -12px;
+}
+.main--content main{
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 100%;
+  min-height: 100%;
+  padding: 75px 5px;
+  overflow-y: auto;
+}
+.main--content footer{
+  top: auto;
+  bottom: 0;
+  padding: 0 55px 0 10px;
+  background-color: #fff;
+  border-top: 1px solid #aaa;
+  z-index: 10;
+}
+.main--content footer input{
+  border: none;
+  line-height: 16px;
+  margin: 10px 0;
+  border-radius: 0;
+}
+.main--content footer input:focus{
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+.main--content footer img{
+  right: 0;
+  width: 50px;
+  margin-top: -25px;
+}
+
+.entry--content form{
+  max-width: 225px;
+  margin: 0 auto;
+}
+.action--button{
+  margin-top: 12px;
+}
+.action--button button{
+  width: 100%;
+  background-color: #3e474f;
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+}
+.action--button button:hover{
+  background-color: #343a40;
+}
+.error{
+  color: red;
+  margin: 5px 0;
+}
+.empty_state{
+  background-image: url('./img/empty_state_ed_red.png');
+  background-color: #fff;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+}*/
