@@ -34,8 +34,7 @@ export class App extends React.Component {
   }
   messageCallback(message) {
     if (message.body) {
-      console.log("got message with body " + message.body)
-      let data = JSON.parse(message.body)      
+      let data = JSON.parse(message.body)
       this.setState(newState(this.state,data))
     } else {
       console.log("got empty message");
@@ -43,45 +42,62 @@ export class App extends React.Component {
   };
   render() {
     const getTable=(prices)=>{
-        return Object.keys(prices).map(function(name,i){
-          let data = prices[name]
-          return (
-              <tr key={i}>
-                <td>{data.name}</td>
-                <td>{data.bestBid}</td>
-                <td>{data.bestAsk}</td>
-                <td>{data.openBid}</td>
-                <td>{data.openAsk}</td>
-                <td>{data.lastChangeAsk}</td>
-                <td>{data.lastChangeBid}</td>
-                <td>
-                    <Sparklines data={data.values}>
-                        <SparklinesLine color="blue" />
-                    </Sparklines>
-                </td>
-              </tr>
-          )
-        })
+        //converting prices objects to array for sorting
+        var array = Object.keys(prices).map((name,i)=>prices[name])
+        // sorting according to lastChangeBid
+        array.sort((a, b)=>(a.lastChangeBid-b.lastChangeBid));
+        return array.map((data,i)=>(
+          <tr key={i}>
+            <td>{data.name}</td>
+            <td>{data.bestBid}</td>
+            <td>{data.bestAsk}</td>
+            <td>{data.openBid}</td>
+            <td>{data.openAsk}</td>
+            <td>{data.lastChangeAsk}</td>
+            <td>{data.lastChangeBid}</td>
+            <td>
+                <Sparklines data={data.values}>
+                    <SparklinesLine color="blue" />
+                </Sparklines>
+            </td>
+          </tr>
+        ))
     }
-            
+    /*getHeader=()=>{
+        return (
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>bestBid</th>
+                        <th>bestAsk</th>
+                        <th>openBid</th>
+                        <th>openAsk</th>
+                        <th>lastChangeAsk</th>
+                        <th>lastChangeBid</th>
+                        <th>sparkLine</th>
+                    </tr>
+                </thead>
+        )
+
+    }*/
     return (
       <div>
           <table>
-            <thead> 
+              <thead>
                 <tr>
-                  <td>name</td>
-                  <td>bestBid</td>
-                  <td>bestAsk</td>
-                  <td>openBid</td>
-                  <td>openAsk</td>
-                  <td>lastChangeAsk</td>
-                  <td>lastChangeBid</td>
-                  <td>sparkLine</td>
+                  <th>name</th>
+                  <th>bestBid</th>
+                  <th>bestAsk</th>
+                  <th>openBid</th>
+                  <th>openAsk</th>
+                  <th>lastChangeAsk</th>
+                  <th>lastChangeBid</th>
+                  <th>sparkLine</th>
                 </tr>
-            </thead>
-            <tbody>
-              {getTable(this.state.prices)}
-            </tbody>
+              </thead>
+              <tbody>
+                {getTable(this.state.prices)}
+              </tbody>
         </table>
       </div>
     );
