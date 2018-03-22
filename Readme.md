@@ -1,7 +1,6 @@
-DB Updating Table Dev Challenge
+React Stomp Sparkline Websocket
 ===============================
 
-This module contains a development challenge for DB recruitment.
 
 The instructions are in the site/index.html file.
 
